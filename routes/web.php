@@ -5,6 +5,8 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +23,14 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
- //Auth::routes(['verify'=>true]);
+ Auth::routes();
 //Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'home'])->name('welcome');
  //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware("verified");
 
-Auth::routes();
-Route::resource('news',NewController::class);
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Auth::routes();
+//Route::resource('news',NewController::class);
+ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//  Route::get('/redirectToFB/{service}', [App\Http\Controllers\FacebookSocialiteController::class, 'redirectToFB']);
+// Route::get('/callback/{service}', [App\Http\Controllers\FacebookSocialiteController::class, 'callback']);
+Route::get('/redirect/{service}', [App\Http\Controllers\Auth\FacebookSocialiteController::class, 'redirect']);
+Route::get('/callback/{service}', [App\Http\Controllers\Auth\FacebookSocialiteController::class, 'callback']);
