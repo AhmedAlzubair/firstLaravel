@@ -33,12 +33,12 @@ class FacebookSocialiteController extends Controller
      */
     public function callback($service)
     {
-         $user=Socialite::driver($service)->user();
-         return redirect('/home');
+          $user=Socialite::driver($service)->user();
+        return redirect('/home');
     }
-    public function callbackc()
+    public function callbackc($service)
     {
-         $user=Socialite::with('facebook')->user();
-         return $user;
+         $user=Socialite::with($service)->user();
+        // return $user;
     }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html >
  @extends('layouts.header')
 <body>
     <div id="app">
@@ -15,6 +15,30 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        {{-- <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-sm text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <span class="fi fi-{{ Config::get('languages')[App::getLocale()]['flag-icon'] }}"></span>
+                                {{ Config::get('languages')[App::getLocale()]['display'] }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                @if ($lang != App::getLocale())
+                                <a class="dropdown-item" href="{{ route('lang',['lang'=>$lang])}}">
+                                    <span class="fi fi-{{ $language['flag-icon'] }}"></span>
+                                    {{ $language['display'] }}
+                                </a>
+                                @endif
+                                @endforeach
+                            </div>
+                        </li> --}}
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li class="nav-item ">
+                            <a class="nav-link"  href="{{ route('lang',['lang'=>$localeCode])}}">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                  
 
                     </ul>
 

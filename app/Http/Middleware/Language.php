@@ -24,7 +24,7 @@ class Language
     {
         if (Session()->has('applocale') and array_key_exists(
             Session()->get('applocale'),
-            config('laravellocalization')
+            config('languages')
         )) {
             App::setlocale(Session()->get('applocale'));
         } else {

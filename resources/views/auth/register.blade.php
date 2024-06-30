@@ -81,6 +81,7 @@
                             </div>
                             <div class="col-md-6 ">
                                 <a href="{{ url('/redirect/facebook') }}" >
+                                {{-- <a href="{{ route('redirectToFB','facebook') }}" > --}}
                                     Facebook Login </a>                      
                             </div>
                         </div>
