@@ -25,14 +25,15 @@ class OfferRequest extends FormRequest
     public function rules():array
     {
         return [
-            'name_ar'=>['required','string','max:100','unique:offers.name_ar'],
-            'name_en'=>['required','string','max:100','unique:offers.name_en'],
+            'name_ar'=>['required','string','max:100','unique:offers'],
+            'name_en'=>['required','string','max:100','unique:offers'],
            // 'name'=>'required|string|max:100|unique:'. $this -> provider,
             //'price'=>'required|double',
             'price'=>['required','double'],
            // 'detail'=>'required|string|max:200'
             'detail_ar'=>['required','string','max:200'],
-            'detail_en'=>['required','string','max:200']
+            'detail_en'=>['required','string','max:200'],
+            'photo'=>['required','string','max:255']
         ];
        
     }
@@ -45,6 +46,7 @@ class OfferRequest extends FormRequest
             'price.double'=>__('messages.price Number'),
             'price.required'=>__('messages.price Importint'),
             'detail_ar.required'=>__('messages.detail Importint'),
+            'photo.required'=>__('messages.photo Importint'),
 
         ];
     }

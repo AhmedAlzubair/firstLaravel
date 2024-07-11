@@ -11,6 +11,7 @@ return [
   'price Importint'=>'The Price Is Importint',
   'price Number'=>'The Price Most by Number',
   'detail Importint'=>'The Detail Is Importint',
+  'photo Importint'=>'The Detail Is Importint',
 
 ];
 

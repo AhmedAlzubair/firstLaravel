@@ -11,6 +11,7 @@ return [
   'price Importint'=>'السعر مطلوب',
   'price Number'=>'السعر يجب ان يكون رقم',
   'detail Importint'=>'التفاصيل مهمه',
+  'photo Importint'=>'التفاصيل مهمه',
   
 ];
 

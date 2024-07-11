@@ -1,10 +1,6 @@
-<!doctype html>
+@extends('layouts.app')
 
-  
- @include('layouts.header')
-
-<body>
-  @include('layouts.navbar')
+@section('content')
   <div class="container mt-3">
     <h2>Small Table</h2>
     <p>The .table-sm class makes the table smaller by cutting cell padding in half:</p>
@@ -31,7 +27,9 @@
 
       </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+      {{-- {!! $offers->links() !!} --}}
+    {{ $offers->links() }}
   </div>
-
-</body>
-</html>
+  </div>
+@stop

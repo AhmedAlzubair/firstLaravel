@@ -6,12 +6,14 @@ use App\Models\Offers\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\TraitOffers;
 
 class OffersController extends Controller
 {
     //
     protected $roule;
     public $messages;
+    use TraitOffers;
 
     protected function getRoule(){
         $role=[
@@ -24,8 +26,8 @@ class OffersController extends Controller
         ];
         return $role;
     }
-    protected function create(){
-      return view('offers.create');
+    protected function createAjxF(){
+      return view('ajxF.create');
     }
     public function getmessages():array
     {
@@ -56,5 +58,20 @@ class OffersController extends Controller
         return redirect()->back()->with(['success'=>'Success To Add']);
       }
 
+    }
+    protected function storeAjxF(Request $request){
+      $file_name= $this->imageUpload('images/offers',$request->photo);
+      if($file_name!=null){
+        Offer::create([
+          'name_ar'=> $request->input('name_ar'),
+          'name_en'=> $request->input('name_en'),
+          'price'=> $request->input('price'),
+          'detail_ar'=> $request->input('detail_ar'),
+          'detail_en'=> $request->input('detail_en'),
+          'photo'=> $file_name,
+  
+        ]);
+        return redirect()->back()->with(['success'=>'Success To Add']);
+      }
     }
 }
